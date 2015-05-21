@@ -1,0 +1,14 @@
+.results-table-block{
+  margin: 30 0;
+  th{
+    font-size: 12px;
+    text-align: center;
+    background: #cccccc;
+    color: #ffffff;
+  }
+
+  .table-bordered > thead > tr > th, .table-bordered > thead > tr > td, .table-bordered > tbody > tr > th, .table-bordered > tbody > tr > td, .table-bordered > tfoot > tr > th, .table-bordered > tfoot > tr > td{
+    border-color: #ffffff;
+    border-width: 2px;
+  }
+}
