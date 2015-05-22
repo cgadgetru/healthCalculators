@@ -11,22 +11,14 @@ angular.module('healthCalculatorsApp')
     .controller('PulsezonecalcCtrl',['$scope','PulseZones', function ($scope,PulseZones) {
 
         var pulseZones = PulseZones.get();
-        $scope.$watchGroup(['restingHeartRate','age'],function(result){
+
+        $scope.$watchGroup(['restingHeartRate','age'],function(){
             $scope.calculate();
         });
 
         $scope.calculate = function(){
             if($scope.restingHeartRate && $scope.age){
-                $scope.pulseZonesArray = [];
-                angular.forEach(pulseZones,function(value,key){
-                    $scope.pulseZonesArray.push(new PulseZone({
-                        name:value.name,
-                        className:value.className,
-                        factor:value.factor,
-                        restingHeartRate:$scope.restingHeartRate,
-                        age:$scope.age
-                    }))
-                })
+                $scope.pulseZonesArray = PulseZones.get($scope.restingHeartRate,$scope.age);
             }else{
                 $scope.pulseZonesArray = pulseZones;
             }
@@ -37,6 +29,7 @@ angular.module('healthCalculatorsApp')
         }
     }]);
 
+/*
 function PulseZone(option){
     var maxPulseSimple,maxPulseExtend,minPulse;
     maxPulseSimple = calcMaxPulseSimple(option.age);
@@ -67,4 +60,4 @@ function calcMaxPulseSimple(age){
 }
 function calcMaxPulseExtend(age){
     return parseInt(205.8 - (0.685 * age));
-}
+}*/

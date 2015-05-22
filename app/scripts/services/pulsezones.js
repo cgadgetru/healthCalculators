@@ -47,8 +47,55 @@ angular.module('healthCalculatorsApp')
             }
         ];
         return {
-            get: function () {
-                return pulseZones
+            get: function (restingHeartRate,age) {
+                var pulseZonesCalculated = [];
+                if(!restingHeartRate || !age){
+                    pulseZonesCalculated = pulseZones
+                }else{
+                    angular.forEach(pulseZones,function(value,key){
+                        pulseZonesCalculated.push(new PulseZone({
+                            name:value.name,
+                            className:value.className,
+                            factor:value.factor,
+                            restingHeartRate:restingHeartRate,
+                            age:age
+                        }))
+                    });
+                }
+                return pulseZonesCalculated;
             }
         }
     });
+
+
+function PulseZone(option){
+    var maxPulseSimple,maxPulseExtend,minPulse;
+    maxPulseSimple = calcMaxPulseSimple(option.age);
+    maxPulseExtend = calcMaxPulseExtend(option.age);
+    minPulse = option.restingHeartRate;
+    this.name = option.name;
+    this.className = option.className;
+    this.simplePulseRange = calcMaxPulse(option.factor, minPulse, maxPulseSimple);
+    this.extendPulseRange = calcMaxPulse(option.factor, minPulse, maxPulseExtend);
+
+    function calcMaxPulse (factor, minPulse, maxPulse){
+        var maxValue = parseInt(minPulse + (maxPulse - minPulse) * (factor +.1));
+        var minValue = parseInt(minPulse + (maxPulse - minPulse) * factor);
+        var range ='-';
+        if(factor !== 0 && factor !== 1){
+            range = minValue+'-'+maxValue;
+        }else if(factor == 0){
+            range = minPulse;
+        }else if(factor == 1){
+            range = maxPulse;
+        }
+        return range;
+    }
+}
+
+function calcMaxPulseSimple(age){
+    return parseInt(220 - age);
+}
+function calcMaxPulseExtend(age){
+    return parseInt(205.8 - (0.685 * age));
+}
