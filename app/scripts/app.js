@@ -39,6 +39,14 @@ angular
         templateUrl: 'views/pulsezonecalc.html',
         controller: 'PulsezonecalcCtrl'
       })
+      .when('/basalmetabolicrate', {
+        templateUrl: 'views/basalmetabolicrate.html',
+        controller: 'BasalmetabolicrateCtrl'
+      })
+      .when('/percentageoffat', {
+        templateUrl: 'views/percentageoffat.html',
+        controller: 'PercentageoffatCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

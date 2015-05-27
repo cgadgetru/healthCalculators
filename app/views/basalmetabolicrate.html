@@ -1,0 +1,60 @@
+<div class="user-data-block row">
+    <div class="col-sm-12 col-xs-12 col-lg-12 col-md-12">
+        <form action="" class="form">
+            <div class="row">
+                <div class="form-group col-xs-5">
+                    <label for="weight">Вес (кг):</label>
+                    <input type="number" ng-model="weight" min="40" max="220" class="form-control input-sm"
+                           id="weight" placeholder="Вес (кг)">
+                    <label for="height">Рост (см):</label>
+                    <input type="number" ng-model="height" min="5" max="250" class="form-control input-sm" id="height"
+                           placeholder="Рост (см)">
+                    <label for="waistline">Обхват талии (см):</label>
+                    <input type="number" ng-model="waistline" min="40" max="200" class="form-control input-sm"
+                           id="waistline"
+                           placeholder="Возраст">
+                    <label for="height">Возраст:</label>
+                    <input type="number" ng-model="age" min="5" max="100" class="form-control input-sm" id="age"
+                           placeholder="Возраст">
+
+                </div>
+                <div class="form-group col-xs-5">
+
+                    <label for="sex">Пол:</label>
+                    <select name="" id="sex" ng-model="sex_selected" ng-options="item as item.name for item in sex">
+                        <option value="">-- выберите --</option>
+                    </select>
+
+                    <label for="activity">Физическая активность: </label>
+                    <select name="" id="activity" ng-model="activity_selected" ng-options="item.name for item in activity">
+                        <option value="">-- выберите --</option>
+                    </select>
+
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="results-table-block">
+    <table class="table table-bordered">
+        <thead>
+        <tr >
+            <th></th>
+            <th>по формуле Маффина-Джеора</th>
+            <th>по формуле Кетч-МакАрдл</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="basalmetabolicrate in basalmetabolicrateArray" class="active">
+
+            <td>{{basalmetabolicrate.name}}</td>
+            <td>{{basalmetabolicrate.value1}}</td>
+            <td>{{basalmetabolicrate.value2}}</td>
+
+        </tr>
+
+        </tbody>
+
+    </table>
+
+</div>
