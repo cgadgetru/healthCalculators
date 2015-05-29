@@ -9,6 +9,11 @@
  */
 angular.module('healthCalculatorsApp')
   .controller('PercentageoffatCtrl',['$scope','FatPercentage', function ($scope,FatPercentage) {
+        $scope.awesomeThings = [
+            'HTML5 Boilerplate',
+            'AngularJS',
+            'Karma'
+        ];
         $scope.fatPercentageArray = FatPercentage.get();
         $scope.weight = 0;
         $scope.height = 0;

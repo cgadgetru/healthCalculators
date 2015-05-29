@@ -9,6 +9,8 @@
  */
 angular.module('healthCalculatorsApp')
   .controller('BasalmetabolicrateCtrl',['$scope','BasalMetabolicRate', function ($scope, BasalMetabolicRate) {
+
+
         $scope.basalmetabolicrateArray = BasalMetabolicRate.get();
         $scope.weight = 0;
         $scope.height = 0;
@@ -31,12 +33,8 @@ angular.module('healthCalculatorsApp')
 
         $scope.calculate = function()
         {
-            $scope.basalmetabolicrateArray = BasalMetabolicRate.get($scope.weight,$scope.height,$scope.waistline,$scope.age,$scope.sex_selected.value,$scope.activity_selected.value);
-            /*if($scope.restingHeartRate && $scope.age){
-                $scope.pulseZonesArray = PulseZones.get($scope.restingHeartRate,$scope.age);
-            }else{
-                $scope.pulseZonesArray = pulseZones;
-            }*/
+            $scope.basalmetabolicrateArray =  BasalMetabolicRate.get($scope.weight,$scope.height,$scope.waistline,$scope.age,$scope.sex_selected.value,$scope.activity_selected.value);
+
         };
 
         /*if(!$scope.restingHeartRate || !$scope.age){

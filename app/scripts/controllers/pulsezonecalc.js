@@ -12,6 +12,12 @@ angular.module('healthCalculatorsApp')
 
         var pulseZones = PulseZones.get();
 
+        $scope.awesomeThings = [
+            'HTML5 Boilerplate',
+            'AngularJS',
+            'Karma'
+        ];
+
         $scope.$watchGroup(['restingHeartRate','age'],function(){
             $scope.calculate();
         });
