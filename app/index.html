@@ -13,6 +13,7 @@
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
+    <script src="//cdn.optimizely.com/js/3394560689.js"></script>
   </head>
   <body ng-app="healthCalculatorsApp">
     <!--[if lt IE 7]>
@@ -46,7 +47,7 @@
         <div class="row">
             <div class="col-sm-3 col-md-2 sidebar">
                 <ul class="nav nav-sidebar">
-                    <li><a ng-href="#/pulseZoneCalc">Расчет пульсовых зон</a></li>
+                    <li><a id="pulseZoneCalc" ng-href="#/pulseZoneCalc">Расчет пульсовых зон</a></li>
                     <li><a ng-href="#/basalmetabolicrate">Расчёт базального уровня метаболизма</a></li>
                     <li><a ng-href="#/percentageoffat">Расчёт процента жира по формуле YMCA</a></li>
                 </ul>

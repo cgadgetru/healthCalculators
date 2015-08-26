@@ -1,11 +1,13 @@
 <div class="user-data-block row">
     <div class="col-sm-12 col-xs-12 col-lg-12 col-md-12">
+        <h2>Расчет пульсовых зон</h2>
         <form action="" class="form-inline">
             <div class="row">
                 <div class="form-group col-xs-5">
                     <label for="resting-heart-rate">Пульс покоя:</label>
                     <input type="number" ng-model="restingHeartRate" min="40" max="220" class="form-control input-sm"
                            id="resting-heart-rate" placeholder="Пульс покоя">
+                    <span ng-bind="restingHeartRate"></span>
                 </div>
                 <div class="form-group col-xs-5">
                     <label for="age">Возраст:</label>
